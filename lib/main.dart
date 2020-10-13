@@ -29,13 +29,20 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           CircleAvatar(
             radius: 80,
-            backgroundColor: Colors.white60,
-            child: CircleAvatar(
-              radius: 78,
-              backgroundImage: AssetImage(
-                'images/appIcon.png',
+            backgroundColor: Colors.blue[900],
+            child: Text(
+              'AUTH',
+              style: TextStyle(
+                fontSize: 55,
               ),
             ),
+            // backgroundColor: Colors.white60,
+            // child: CircleAvatar(
+            //   radius: 78,
+            //   backgroundImage: AssetImage(
+            //     'images/appIcon.png',
+            //   ),
+            // ),
           ),
           SizedBox(
             height: 20,
