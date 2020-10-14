@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'register.dart';
+import 'userList.dart';
 
 void main() {
   runApp(
@@ -110,6 +111,15 @@ class _LoginPageState extends State<LoginPage> {
               onPressed: () {
                 print(controllerEmail.text);
                 print(controllerPassword.text);
+                if (controllerEmail.text == 'admin' &&
+                    controllerPassword.text == 'admin') {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => UserListPage(),
+                    ),
+                  );
+                }
               },
               padding: EdgeInsets.all(10),
               elevation: 5,
