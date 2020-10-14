@@ -108,6 +108,33 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
             ),
+            SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              width: 350,
+              height: 60,
+              child: RaisedButton(
+                textColor: Colors.black54,
+                color: Colors.teal[300],
+                onPressed: () {
+                  print(controllerName.text);
+                  print(controllerEmail.text);
+                  print(controllerPassword.text);
+                  print(controllerConfirmPassword.text);
+                },
+                padding: EdgeInsets.all(10),
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(30))),
+                child: Text(
+                  'REGISTER',
+                  style: TextStyle(
+                    fontSize: 25,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
