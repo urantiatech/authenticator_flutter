@@ -121,6 +121,13 @@ class _RegisterPageState extends State<RegisterPage> {
                     textColor: Colors.black54,
                     color: Colors.teal[300],
                     onPressed: () {
+                      var email = controllerEmail.text;
+                      bool emailValid = RegExp(
+                              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                          .hasMatch(email);
+                      if (!emailValid) {
+                        print('Email Invalid');
+                      }
                       print(controllerName.text);
                       print(controllerEmail.text);
                       print(controllerPassword.text);
