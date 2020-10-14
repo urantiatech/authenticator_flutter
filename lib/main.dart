@@ -37,7 +37,8 @@ class _LoginPageState extends State<LoginPage> {
                 child: Text(
                   'AUTH',
                   style: TextStyle(
-                    fontSize: 43,
+                    fontSize: 30,
+                    fontFamily: 'Ethnocentric',
                   ),
                 ),
                 // backgroundColor: Colors.white60,
@@ -58,6 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                   fontSize: 40,
                   color: Colors.black,
                   letterSpacing: 3,
+                  fontFamily: 'Ethnocentric',
                 ),
               ),
               SizedBox(

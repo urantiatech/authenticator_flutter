@@ -26,6 +26,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     fontSize: 40,
                     color: Colors.black,
                     letterSpacing: 3,
+                    fontFamily: 'Ethnocentric',
                   ),
                 ),
                 SizedBox(
