@@ -110,10 +110,6 @@ class _LoginPageState extends State<LoginPage> {
               onPressed: () {
                 print(controllerEmail.text);
                 print(controllerPassword.text);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => RegisterPage()),
-                );
               },
               padding: EdgeInsets.all(10),
               elevation: 5,
@@ -144,7 +140,10 @@ class _LoginPageState extends State<LoginPage> {
                 FlatButton(
                   child: Text('Register'),
                   onPressed: () {
-                    print('I don\'t do anything yet');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => RegisterPage()),
+                    );
                   },
                 ),
               ],
