@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'register.dart';
 
 void main() {
   runApp(
@@ -28,12 +29,12 @@ class _LoginPageState extends State<LoginPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CircleAvatar(
-            radius: 80,
+            radius: 60,
             backgroundColor: Colors.blue[900],
             child: Text(
               'AUTH',
               style: TextStyle(
-                fontSize: 55,
+                fontSize: 43,
               ),
             ),
             // backgroundColor: Colors.white60,
@@ -109,6 +110,10 @@ class _LoginPageState extends State<LoginPage> {
               onPressed: () {
                 print(controllerEmail.text);
                 print(controllerPassword.text);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RegisterPage()),
+                );
               },
               padding: EdgeInsets.all(10),
               elevation: 5,
