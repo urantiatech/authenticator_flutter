@@ -1,3 +1,4 @@
+import 'package:authenticator_flutter/userDetails.dart';
 import 'package:flutter/material.dart';
 
 class UserListPage extends StatefulWidget {
@@ -15,42 +16,80 @@ class _UserListPageState extends State<UserListPage> {
       ),
       backgroundColor: Colors.teal[100],
       body: SafeArea(
-        child: Column(
-          children: [
-            Card(
-              child: InkWell(
-                splashColor: Colors.teal[200],
-                onTap: () {
-                  print('Card tapped.');
-                },
-                child: ListTile(
-                  title: Text('Demo user'),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Card(
+                child: InkWell(
+                  splashColor: Colors.teal[200],
+                  onTap: () {
+                    print('Card tapped.');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => UserDetails(),
+                      ),
+                    );
+                  },
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      radius: 20,
+                      backgroundColor: Colors.blue,
+                      child: Text('D'),
+                    ),
+                    title: Text('Demo user'),
+                    subtitle: Text('email@email.com'),
+                  ),
                 ),
               ),
-            ),
-            Card(
-              child: InkWell(
-                splashColor: Colors.teal[200],
-                onTap: () {
-                  print('Card tapped.');
-                },
-                child: ListTile(
-                  title: Text('Demo user'),
+              Card(
+                child: InkWell(
+                  splashColor: Colors.teal[200],
+                  onTap: () {
+                    print('Card tapped.');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => UserDetails(),
+                      ),
+                    );
+                  },
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      radius: 20,
+                      backgroundColor: Colors.blue,
+                      child: Text('D'),
+                    ),
+                    title: Text('Demo user'),
+                    subtitle: Text('email@email.com'),
+                  ),
                 ),
               ),
-            ),
-            Card(
-              child: InkWell(
-                splashColor: Colors.teal[200],
-                onTap: () {
-                  print('Card tapped.');
-                },
-                child: ListTile(
-                  title: Text('Demo user'),
+              Card(
+                child: InkWell(
+                  splashColor: Colors.teal[200],
+                  onTap: () {
+                    print('Card tapped.');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => UserDetails(),
+                      ),
+                    );
+                  },
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      radius: 20,
+                      backgroundColor: Colors.blue,
+                      child: Text('D'),
+                    ),
+                    title: Text('Demo user'),
+                    subtitle: Text('email@email.com'),
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
