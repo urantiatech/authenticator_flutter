@@ -28,6 +28,7 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             SizedBox(
               height: 20,
+              width: double.infinity,
             ),
             Container(
               width: 350,
@@ -133,6 +134,20 @@ class _RegisterPageState extends State<RegisterPage> {
                     fontSize: 25,
                   ),
                 ),
+              ),
+            ),
+            Container(
+              width: 350,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  FlatButton(
+                    child: Text('Already have an account? Login'),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ],
               ),
             ),
           ],
