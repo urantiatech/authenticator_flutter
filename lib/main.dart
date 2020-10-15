@@ -57,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
                 'Welcome!',
                 style: TextStyle(
                   fontSize: 40,
-                  color: Colors.black,
+                  color: Colors.black54,
                   letterSpacing: 3,
                   fontFamily: 'Ethnocentric',
                 ),
@@ -155,13 +155,23 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     FlatButton(
-                      child: Text('Forgot password?'),
+                      child: Text(
+                        'Forgot password?',
+                        style: TextStyle(
+                          color: Colors.black54,
+                        ),
+                      ),
                       onPressed: () {
                         print('I don\'t do anything yet');
                       },
                     ),
                     FlatButton(
-                      child: Text('Register'),
+                      child: Text(
+                        'Register',
+                        style: TextStyle(
+                          color: Colors.black54,
+                        ),
+                      ),
                       onPressed: () {
                         Navigator.push(
                           context,

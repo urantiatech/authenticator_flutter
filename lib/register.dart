@@ -24,7 +24,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   'Welcome!',
                   style: TextStyle(
                     fontSize: 40,
-                    color: Colors.black,
+                    color: Colors.black54,
                     letterSpacing: 3,
                     fontFamily: 'Ethnocentric',
                   ),
@@ -152,7 +152,12 @@ class _RegisterPageState extends State<RegisterPage> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       FlatButton(
-                        child: Text('Already have an account? Login'),
+                        child: Text(
+                          'Already have an account? Login',
+                          style: TextStyle(
+                            color: Colors.black54,
+                          ),
+                        ),
                         onPressed: () {
                           Navigator.pop(context);
                         },
