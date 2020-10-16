@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -128,11 +129,16 @@ class _RegisterPageState extends State<RegisterPage> {
                           .hasMatch(email);
                       if (!emailValid) {
                         print('Email Invalid');
+                      } else {
+                        // print(controllerName.text);
+                        // print(controllerEmail.text);
+                        // print(controllerPassword.text);
+                        // print(controllerConfirmPassword.text);
+                        createUser(
+                            name: controllerName.text,
+                            email: controllerEmail.text,
+                            password: controllerPassword.text);
                       }
-                      print(controllerName.text);
-                      print(controllerEmail.text);
-                      print(controllerPassword.text);
-                      print(controllerConfirmPassword.text);
                     },
                     padding: EdgeInsets.all(10),
                     elevation: 5,
@@ -172,4 +178,23 @@ class _RegisterPageState extends State<RegisterPage> {
       ),
     );
   }
+}
+
+Future<void> createUser(
+    {@required String name,
+    @required String email,
+    @required String password}) async {
+  var url = "http://10.0.2.2:8888/create";
+  // var url = "http://192.168.1.106:8888/create";
+  print('Name: $name');
+  print('Email: $email');
+  print('Password: $password');
+  print(name);
+  print(email);
+  print(password);
+  var response = await http
+      .post(url, body: {"name": name, "email": email, "password": password});
+  print(response);
+  print('Response status: ${response.statusCode}');
+  print('Response body: ${response.body}');
 }

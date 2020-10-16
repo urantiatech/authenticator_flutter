@@ -122,7 +122,7 @@ class _LoginPageState extends State<LoginPage> {
                     if (controllerEmail.text == 'admin@admin.com' &&
                         controllerPassword.text == 'admin' &&
                         emailValid) {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                           builder: (context) => UserListPage(),
