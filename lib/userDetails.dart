@@ -1,11 +1,36 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class UserDetails extends StatefulWidget {
+  final String userEmail;
+  UserDetails(this.userEmail);
   @override
   _UserDetailsState createState() => _UserDetailsState();
 }
 
 class _UserDetailsState extends State<UserDetails> {
+  var userDetails;
+  Future<void> getUserDetails() async {
+    var url = "http://10.0.2.2:8888/read";
+    Map data = {'email': widget.userEmail};
+    String body = jsonEncode(data);
+    var response = await http.post(url,
+        headers: {"Content-Type": "application/json"}, body: body);
+    print('Response status: ${response.statusCode}');
+    print('Response body: ${response.body}');
+    userDetails = json.decode(response.body);
+    print(userDetails);
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getUserDetails();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +68,7 @@ class _UserDetailsState extends State<UserDetails> {
                       ),
                     ),
                     Text(
-                      'DemoName1',
+                      'DEMO',
                       style: TextStyle(
                         fontSize: 25,
                       ),
@@ -63,7 +88,7 @@ class _UserDetailsState extends State<UserDetails> {
                       ),
                     ),
                     Text(
-                      'email@email.com',
+                      widget.userEmail,
                       style: TextStyle(
                         fontSize: 25,
                       ),

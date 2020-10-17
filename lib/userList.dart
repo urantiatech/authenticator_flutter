@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:authenticator_flutter/userDetails.dart';
 import 'package:flutter/material.dart';
@@ -22,16 +23,16 @@ class _UserListPageState extends State<UserListPage> {
     print(users);
   }
 
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   getUserList();
-  // }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getUserList();
+  }
 
   @override
   Widget build(BuildContext context) {
-    getUserList();
+    // getUserList();
     return Scaffold(
       appBar: AppBar(
         title: Text('Registered Users'),
@@ -49,43 +50,57 @@ class _UserListPageState extends State<UserListPage> {
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
                     return Card(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          radius: 20,
-                          backgroundColor: Colors.teal,
-                          child: Text(
-                              users[index]["name"][0].toString().toUpperCase()),
+                      child: InkWell(
+                        splashColor: Colors.teal[200],
+                        onTap: () {
+                          print('Card tapped.');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  UserDetails(users[index]["email"]),
+                            ),
+                          );
+                        },
+                        child: ListTile(
+                          leading: CircleAvatar(
+                            radius: 20,
+                            backgroundColor: Colors.teal,
+                            child: Text(users[index]["name"][0]
+                                .toString()
+                                .toUpperCase()),
+                          ),
+                          title: Text(users[index]["name"]),
+                          subtitle: Text(users[index]["email"]),
                         ),
-                        title: Text(users[index]["name"]),
-                        subtitle: Text(users[index]["email"]),
                       ),
                     );
                   },
                 ),
               ),
-              Card(
-                child: InkWell(
-                  splashColor: Colors.teal[200],
-                  onTap: () {
-                    print('Card tapped.');
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => UserDetails(),
-                      ),
-                    );
-                  },
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      radius: 20,
-                      backgroundColor: Colors.teal,
-                      child: Text('D'),
-                    ),
-                    title: Text('HARDCODED USER'),
-                    subtitle: Text('email@email.com'),
-                  ),
-                ),
-              ),
+              // Card(
+              //   child: InkWell(
+              //     splashColor: Colors.teal[200],
+              //     onTap: () {
+              //       print('Card tapped.');
+              //       Navigator.push(
+              //         context,
+              //         MaterialPageRoute(
+              //           builder: (context) => UserDetails(),
+              //         ),
+              //       );
+              //     },
+              //     child: ListTile(
+              //       leading: CircleAvatar(
+              //         radius: 20,
+              //         backgroundColor: Colors.teal,
+              //         child: Text('D'),
+              //       ),
+              //       title: Text('HARDCODED USER'),
+              //       subtitle: Text('email@email.com'),
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -186,15 +188,11 @@ Future<void> createUser(
     @required String password}) async {
   var url = "http://10.0.2.2:8888/create";
   // var url = "http://192.168.1.106:8888/create";
-  print('Name: $name');
-  print('Email: $email');
-  print('Password: $password');
-  print(name);
-  print(email);
-  print(password);
-  var response = await http
-      .post(url, body: {"name": name, "email": email, "password": password});
-  print(response);
+  Map data = {'name': name, 'email': email, 'password': password};
+
+  String body = jsonEncode(data);
+  var response = await http.post(url,
+      headers: {"Content-Type": "application/json"}, body: body);
   print('Response status: ${response.statusCode}');
   print('Response body: ${response.body}');
 }
