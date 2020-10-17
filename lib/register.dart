@@ -9,6 +9,7 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  bool passwordsMatch = true;
   TextEditingController controllerName = TextEditingController();
   TextEditingController controllerEmail = TextEditingController();
   TextEditingController controllerPassword = TextEditingController();
@@ -131,6 +132,12 @@ class _RegisterPageState extends State<RegisterPage> {
                           .hasMatch(email);
                       if (!emailValid) {
                         print('Email Invalid');
+                      } else if (controllerPassword.text !=
+                          controllerConfirmPassword.text) {
+                        setState(() {
+                          print('passwords do not match');
+                          passwordsMatch = false;
+                        });
                       } else {
                         // print(controllerName.text);
                         // print(controllerEmail.text);
@@ -150,6 +157,21 @@ class _RegisterPageState extends State<RegisterPage> {
                       'REGISTER',
                       style: TextStyle(
                         fontSize: 25,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Visibility(
+                  visible: !passwordsMatch,
+                  child: Container(
+                    child: Text(
+                      'Passwords do not match',
+                      style: TextStyle(
+                        color: Colors.red[400],
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                   ),
